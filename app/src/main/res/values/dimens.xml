@@ -2,8 +2,8 @@
 <resources>
     <dimen name="image_width">185dp</dimen>
     <dimen name="image_height">278dp</dimen>
-    <dimen name="image_width_small">150dp</dimen>
-    <dimen name="image_height_small">200dp</dimen>
+    <dimen name="image_width_small">90dp</dimen>
+    <dimen name="image_height_small">130dp</dimen>
     <dimen name="item_padding_16">16dp</dimen>
-    <dimen name="label_text_size">18sp</dimen>
+    <dimen name="label_text_size">12sp</dimen>
 </resources>

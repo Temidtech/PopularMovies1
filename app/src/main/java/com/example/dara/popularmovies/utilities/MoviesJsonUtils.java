@@ -14,10 +14,16 @@ import java.util.List;
 
 public class MoviesJsonUtils {
 
-    private static String buildImageUrl(String posterPath) {
+    private static String buildPosterUrl(String posterPath) {
         final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
         final String IMAGE_SIZE = "w185";
-        return IMAGE_BASE_URL+IMAGE_SIZE+posterPath;
+        return IMAGE_BASE_URL + IMAGE_SIZE + posterPath;
+    }
+
+    private static String buildBackdropUrl(String posterPath) {
+        final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/";
+        final String IMAGE_SIZE = "w342";
+        return IMAGE_BASE_URL + IMAGE_SIZE + posterPath;
     }
 
     /**
@@ -53,7 +59,11 @@ public class MoviesJsonUtils {
 
                 //Extract "poster_path" for movie poster
                 String posterFilePath = currentMovie.optString("poster_path");
-                String posterUrl = buildImageUrl(posterFilePath);
+                String posterUrl = buildPosterUrl(posterFilePath);
+
+                //Extract "backdrop_path" for movie backdrop
+                String backdropFilePath = currentMovie.optString("backdrop_path");
+                String backdropUrl = buildBackdropUrl(backdropFilePath);
 
                 //Extract "overview" for movie overview
                 String overview = currentMovie.optString("overview");
@@ -62,7 +72,7 @@ public class MoviesJsonUtils {
                 String releaseDate = currentMovie.optString("release_date");
 
                 //Add the new Movie to the list of movies
-                movies.add(new Movie(title, posterUrl, overview, releaseDate, voteAverage));
+                movies.add(new Movie(title, posterUrl, backdropUrl, overview, releaseDate, voteAverage));
             }
 
         } catch (JSONException e) {

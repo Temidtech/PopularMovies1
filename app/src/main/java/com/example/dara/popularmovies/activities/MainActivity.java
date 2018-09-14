@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.dara.popularmovies.databases.FavouriteMoviesDatabase;
 import com.example.dara.popularmovies.model.Movie;
 import com.example.dara.popularmovies.model.MovieAdapter;
 import com.example.dara.popularmovies.R;
@@ -156,12 +157,18 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.Item
             case R.id.action_refresh:
                 mSwipeRefreshLayout.setRefreshing(true);
             case R.id.action_sort_by_popularity:
+                this.setTitle(getString(R.string.app_name));
                 mRecyclerView.setAdapter(null);
                 loadPopularMoviesData();
                 return true;
             case R.id.action_sort_by_rating:
+                this.setTitle(getString(R.string.top_rated_label));
                 mRecyclerView.setAdapter(null);
                 loadTopRatedMoviesData();
+                return true;
+            case R.id.action_show_favourites:
+                Intent intent = new Intent(MainActivity.this, FavouritesActivity.class);
+                startActivity(intent);
                 return true;
         }
         return super.onOptionsItemSelected(item);

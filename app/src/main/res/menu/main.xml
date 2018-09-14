@@ -12,12 +12,18 @@
         android:id="@+id/action_sort_by_popularity"
         android:title="@string/sort_by_popularity_label"
         app:showAsAction="never"
-        android:orderInCategory="1"/>
+        android:orderInCategory="2"/>
 
     <item
         android:id="@+id/action_sort_by_rating"
         android:title="@string/sort_by_rating_label"
         app:showAsAction="never"
-        android:orderInCategory="2"/>
+        android:orderInCategory="3"/>
+
+    <item
+        android:id="@+id/action_show_favourites"
+        android:title="@string/favourites_label"
+        app:showAsAction="never"
+        android:orderInCategory="1"/>
 
 </menu>
